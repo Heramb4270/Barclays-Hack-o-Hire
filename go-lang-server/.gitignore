@@ -1,0 +1,27 @@
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Output of build process
+/bin/
+/dist/
+/build/
+*.out
+
+# Testing and coverage data
+*.test
+*.coverprofile
+*.cov
+coverage.txt
+coverage.out
+
+# Logs and debugging
+*.log
+*.trace
+
+# Vendor directory (when using Go modules with vendoring)
+vendor/
+
+# Dependency directories (when not
