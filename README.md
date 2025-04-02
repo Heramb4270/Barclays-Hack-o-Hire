@@ -24,6 +24,26 @@ Large-scale distributed platforms generate vast amounts of log data from high-fr
 - **Automated Onboarding**: New applications automatically added to monitoring setup
 - **Interactive Dashboards**: Visual representation of system health and performance metrics
 
+## 🤖 AI/ML-Based Anomaly Detection Engine
+
+This module powers the intelligent core of our API monitoring system, using a hybrid approach that combines traditional machine learning, deep learning, and statistical methods to detect anomalies in real-time API traffic across distributed environments.
+
+ ###🔍 Models Used
+🧠 **AutoEncoder (AE)**
+- Learns baseline behavior of API request patterns.
+- Calculates reconstruction error to identify unusual payloads, tokens, response times, or headers.
+- Effective for structure-based anomalies in single requests.
+
+⏱️ **LSTM (Long Short-Term Memory)**
+- Sequence model trained on user sessions and request flows.
+- Detects temporal anomalies, such as deviations in call order, delays, or flow changes across time.
+- Useful for behavioral pattern tracking.
+
+🚨 **Isolation Forest (IF)**
+- Unsupervised tree-based model that isolates statistical outliers.
+- Detects sudden spikes in latency, rare IPs, abnormal user agents, etc.
+- Ideal for lightweight, quick anomaly detection in high-dimensional spaces.
+
 ## 🛠️ Technologies Used
 
 - **Backend**: Go (37%)
