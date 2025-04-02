@@ -28,7 +28,7 @@ Large-scale distributed platforms generate vast amounts of log data from high-fr
 
 This module powers the intelligent core of our API monitoring system, using a hybrid approach that combines traditional machine learning, deep learning, and statistical methods to detect anomalies in real-time API traffic across distributed environments.
 
- ###🔍 Models Used
+ ### 🔍 Models Used
 🧠 **AutoEncoder (AE)**
 - Learns baseline behavior of API request patterns.
 - Calculates reconstruction error to identify unusual payloads, tokens, response times, or headers.
