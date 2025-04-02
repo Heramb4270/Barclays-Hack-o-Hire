@@ -5,8 +5,8 @@ services:
     image: elasticsearch:8.12.0
     environment:
       - discovery.type=single-node
-      - xpack.security.enabled=false  # Disable security for now
-      - ES_JAVA_OPTS=-Xms1g -Xmx1g  # Limit memory
+      - xpack.security.enabled=false 
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g 
     ports:
       - "9200:9200"
     volumes:
