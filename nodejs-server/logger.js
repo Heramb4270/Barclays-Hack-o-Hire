@@ -4,7 +4,6 @@ const os = require('os');
 
 const logFilePath = path.join('/app/logs/nodejs', 'nodejs-app.log');
 
-// Custom formatter to include all relevant parameters
 const apiLogFormat = format.printf(({ timestamp, level, message, ...metadata }) => {
   const { 
     ip, 
@@ -15,7 +14,6 @@ const apiLogFormat = format.printf(({ timestamp, level, message, ...metadata }) 
     requestSize, 
     responseSize,
     userAgent,
-    // Additional fields
     authStatus,
     dbQueryTime,
     cpuUsage,
@@ -27,7 +25,7 @@ const apiLogFormat = format.printf(({ timestamp, level, message, ...metadata }) 
     level,
     server: os.hostname(),
     service: 'nodejs-api',
-    // HTTP Request Metrics
+  
     ip: ip || null,
     method: method || 'GET', // Default to GET if not specified
     endpoint: endpoint || '/',
@@ -51,7 +49,7 @@ const logger = createLogger({
   transports: [
     new transports.File({ 
       filename: logFilePath,
-      maxsize: 1024 * 1024 * 10, // 10MB per file
+      maxsize: 1024 * 1024 * 10, 
       maxFiles: 5
     }),
     new transports.Console()
@@ -59,7 +57,6 @@ const logger = createLogger({
   exitOnError: false
 });
 
-// Helper method for API request logging
 logger.logApiRequest = (req, res, responseTime, additionalData = {}) => {
   const logData = {
     ip: req.ip,
@@ -82,16 +79,5 @@ logger.logApiRequest = (req, res, responseTime, additionalData = {}) => {
   }
 };
 
-// Example usage in middleware:
-// app.use((req, res, next) => {
-//   const start = Date.now();
-//   res.on('finish', () => {
-//     const responseTime = Date.now() - start;
-//     logger.logApiRequest(req, res, responseTime, {
-//       dbQueryTime: res.locals.dbQueryTime // If you track this
-//     });
-//   });
-//   next();
-// });
 
 module.exports = logger;
