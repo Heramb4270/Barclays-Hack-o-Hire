@@ -3,7 +3,7 @@ const logger = require("./logger"); // Your enhanced logger
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Replace morgan with your logger
+
 app.use((req, res, next) => {
   const start = Date.now();
   
@@ -11,27 +11,25 @@ app.use((req, res, next) => {
     const responseTime = Date.now() - start;
     
     logger.logApiRequest(req, res, responseTime, {
-      // Additional context you want to capture
     });
   });
   
   next();
 });
 
-// Example endpoints with proper logging
+
 app.get("/api/status", (req, res) => {
-  // No need for manual logging - the middleware handles it
   res.json({ status: "OK", timestamp: new Date().toISOString() });
 });
 
 app.get("/api/error", (req, res) => {
   try {
-    // Simulate an error
+    // Simulate  error
     throw new Error("This is a simulated error");
   } catch (err) {
     logger.error("Simulated error occurred", {
       error: err.message,
-      stack: err.stack, // Include stack trace for errors
+      stack: err.stack,
       endpoint: req.originalUrl,
       ip: req.ip
     });
@@ -39,7 +37,6 @@ app.get("/api/error", (req, res) => {
   }
 });
 
-// // Example protected endpoint
 // app.get("/api/admin", (req, res) => {
 //   const user = { id: 123, role: "admin" }; // Normally from auth middleware
   
@@ -53,7 +50,6 @@ app.get("/api/error", (req, res) => {
 //   res.json({ secretData: "For admin eyes only" });
 // });
 
-// // Database query simulation
 // app.get("/api/users", async (req, res) => {
 //   const start = Date.now();
   
@@ -72,7 +68,7 @@ app.get("/api/error", (req, res) => {
 //   res.json(users);
 // });
 
-// Start the server
+// Start of the server
 app.listen(PORT, () => {
   logger.info(`Server started on port ${PORT}`, {
     event: "server_start",
