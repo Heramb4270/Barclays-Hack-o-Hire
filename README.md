@@ -1,7 +1,6 @@
 # API Call Analysis and Alert System
 
 <div align="center">
-  <img src="docs/images/logo.png" alt="Project Logo" width="300"/>
   <h3>AI-Powered API Monitoring and Anomaly Detection System</h3>
   <p>Developed for Barclays Hack-o-Hire 2025</p>
 </div>
@@ -54,9 +53,6 @@ This module powers the intelligent core of our API monitoring system, using a hy
 - **AI/ML**: Python with scikit-learn/TensorFlow
 - **Database**: PostreSQL for log storage and analysis
 
-## 🏗️ System Architecture
-
-![System Architecture](docs/images/architecture.png)
 
 Our system follows a microservices architecture with these key components:
 
